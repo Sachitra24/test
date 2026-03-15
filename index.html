@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RK Power Drive Systems – Precision Motor Solutions</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:        #f5f6fa;
+      --bg-dark:   #0d1117;
+      --navy:      #0a1628;
+      --navy2:     #112240;
+      --steel:     #1e3a5f;
+      --accent:    #c8922a;
+      --accent2:   #e8a83a;
+      --silver:    #8d9db6;
+      --light:     #dce6f0;
+      --white:     #ffffff;
+      --text-dark: #0a1628;
+      --text-mid:  #3d5170;
+      --text-muted:#8d9db6;
+      --border:    rgba(200,146,42,0.18);
+      --border-light: rgba(10,22,40,0.1);
+      --font-head: 'Montserrat', sans-serif;
+      --font-body: 'Lato', sans-serif;
+      --font-mono: 'Roboto Mono', monospace;
+      --radius:    2px;
+      --shadow:    0 8px 40px rgba(10,22,40,0.12);
+      --shadow-lg: 0 20px 60px rgba(10,22,40,0.2);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text-dark); font-family: var(--font-body); overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(10,22,40,0.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(200,146,42,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5vw; height: 70px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 0.7rem; text-decoration: none; }
+    .logo-mark {
+      width: 40px; height: 40px; background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem; font-weight: 900; color: var(--navy); font-family: var(--font-head); flex-shrink: 0;
+    }
+    .logo-text .l1 { font-family: var(--font-head); font-size: 0.9rem; font-weight: 800; color: var(--white); letter-spacing: 1.5px; text-transform: uppercase; line-height: 1.2; }
+    .logo-text .l1 span { color: var(--accent); }
+    .logo-text .l2 { font-family: var(--font-mono); font-size: 0.52rem; color: var(--silver); letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+    .nav-links { display: flex; gap: 0; list-style: none; }
+    .nav-links a {
+      color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 1.5px; text-transform: uppercase; padding: 0 1.1rem; height: 70px;
+      display: flex; align-items: center; border-bottom: 2px solid transparent; transition: all 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .nav-cta {
+      background: var(--accent); color: var(--navy); border: none; padding: 0.55rem 1.4rem;
+      font-family: var(--font-head); font-size: 0.7rem; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent2); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; color: white; font-size: 1.4rem; }
+
+    /* HERO */
+    .hero { min-height: 100vh; background: var(--navy); position: relative; display: flex; overflow: hidden; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(110deg, rgba(10,22,40,0.97) 45%, rgba(10,22,40,0.55) 100%); }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(rgba(200,146,42,0.12) 1px, transparent 1px);
+      background-size: 44px 44px; opacity: 0.55;
+    }
+    .hero-content {
+      position: relative; z-index: 2; display: flex; width: 100%;
+      align-items: center; padding: 120px 5vw 80px; gap: 4rem;
+    }
+    .hero-left { flex: 1; max-width: 620px; }
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.3);
+      padding: 0.4rem 1rem; font-family: var(--font-mono); font-size: 0.65rem;
+      color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.8rem;
+    }
+    .hero-eyebrow::before { content: ''; width: 6px; height: 6px; background: var(--accent); border-radius: 50%; animation: blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+    .hero h1 { font-family: var(--font-head); font-size: clamp(2.8rem, 6vw, 5.5rem); font-weight: 900; line-height: 1.0; color: var(--white); letter-spacing: -1px; margin-bottom: 1.5rem; }
+    .hero h1 em { font-style: normal; color: var(--accent); }
+    .hero-sub { font-size: 1.05rem; color: var(--silver); line-height: 1.8; max-width: 500px; margin-bottom: 2.5rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-gold {
+      background: var(--accent); color: var(--navy); border: none; padding: 0.9rem 2.2rem;
+      font-family: var(--font-head); font-size: 0.78rem; font-weight: 800; letter-spacing: 2px;
+      text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+    .btn-gold:hover { background: var(--accent2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,146,42,0.35); }
+    .btn-ghost {
+      background: transparent; color: var(--white); border: 1.5px solid rgba(255,255,255,0.25);
+      padding: 0.9rem 2.2rem; font-family: var(--font-head); font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 2px; text-transform: uppercase; cursor: pointer; text-decoration: none; display: inline-block; transition: all 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .hero-right { flex: 0 0 400px; display: flex; flex-direction: column; gap: 1rem; }
+    .hero-img-main { width: 100%; height: 260px; object-fit: cover; border: 1px solid rgba(200,146,42,0.25); filter: saturate(0.7); display: block; }
+    .hero-img-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .hero-img-sm { width: 100%; height: 118px; object-fit: cover; border: 1px solid rgba(200,146,42,0.15); filter: saturate(0.6); display: block; }
+
+    /* TRUST BAR */
+    .trust-bar {
+      background: var(--navy2); border-top: 1px solid rgba(200,146,42,0.2); border-bottom: 3px solid var(--accent);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+    }
+    .trust-item { padding: 2rem 1.5rem; text-align: center; border-right: 1px solid rgba(255,255,255,0.05); transition: background 0.2s; }
+    .trust-item:last-child { border-right: none; }
+    .trust-item:hover { background: rgba(200,146,42,0.05); }
+    .trust-num { font-family: var(--font-head); font-size: 2.5rem; font-weight: 900; color: var(--accent); line-height: 1; }
+    .trust-label { font-size: 0.7rem; color: var(--silver); letter-spacing: 2px; text-transform: uppercase; margin-top: 0.4rem; }
+
+    /* SECTIONS */
+    section { padding: 6rem 5vw; }
+    .chip {
+      display: inline-block; font-family: var(--font-mono); font-size: 0.62rem; color: var(--accent);
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 0.8rem;
+      padding: 0.3rem 0.8rem; border-left: 3px solid var(--accent); background: rgba(200,146,42,0.06);
+    }
+    .sec-title { font-family: var(--font-head); font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 900; color: var(--navy); line-height: 1.1; letter-spacing: -0.5px; margin-bottom: 1rem; }
+    .sec-sub { color: var(--text-mid); font-size: 1rem; line-height: 1.8; max-width: 540px; }
+    .sec-title-white { color: var(--white); }
+    .sec-sub-light { color: var(--silver); }
+
+    /* PRODUCTS */
+    #products { background: var(--white); }
+    .products-hd { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3.5rem; flex-wrap: wrap; gap: 2rem; }
+    .product-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .pcard { background: var(--white); border: 1px solid var(--border-light); overflow: hidden; transition: all 0.3s; cursor: pointer; }
+    .pcard:hover { border-color: var(--accent); transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+    .pcard-img-wrap { overflow: hidden; position: relative; }
+    .pcard-img { width: 100%; height: 200px; object-fit: cover; display: block; filter: saturate(0.75); transition: filter 0.3s, transform 0.4s; }
+    .pcard:hover .pcard-img { filter: saturate(1); transform: scale(1.04); }
+    .pcard-badge { position: absolute; top: 1rem; left: 1rem; background: var(--accent); color: var(--navy); font-family: var(--font-mono); font-size: 0.58rem; font-weight: 500; letter-spacing: 2px; padding: 0.22rem 0.6rem; text-transform: uppercase; }
+    .pcard-body { padding: 1.5rem; }
+    .pcard-num { font-family: var(--font-mono); font-size: 0.58rem; color: var(--text-muted); letter-spacing: 2px; margin-bottom: 0.5rem; }
+    .pcard-name { font-family: var(--font-head); font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 0.6rem; }
+    .pcard-desc { font-size: 0.84rem; color: var(--text-mid); line-height: 1.65; margin-bottom: 1.1rem; }
+    .pcard-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .ptag { font-family: var(--font-mono); font-size: 0.58rem; color: var(--steel); background: var(--light); border: 1px solid rgba(10,22,40,0.1); padding: 0.2rem 0.55rem; letter-spacing: 1px; }
+    .pcard:hover .ptag { background: rgba(200,146,42,0.08); border-color: rgba(200,146,42,0.25); }
+
+    /* WHY US */
+    #why { background: var(--navy); }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .why-img-stack { position: relative; height: 500px; }
+    .why-img1 { position: absolute; top: 0; left: 0; width: 78%; height: 350px; object-fit: cover; filter: saturate(0.6); border: 3px solid var(--accent); display: block; }
+    .why-img2 { position: absolute; bottom: 0; right: 0; width: 58%; height: 230px; object-fit: cover; filter: saturate(0.6); border: 3px solid var(--navy2); box-shadow: var(--shadow-lg); display: block; }
+    .why-badge {
+      position: absolute; top: 48%; left: 58%; transform: translate(-50%, -50%);
+      background: var(--accent); color: var(--navy); width: 88px; height: 88px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 1.4rem; font-weight: 900; line-height: 1; z-index: 3; text-align: center;
+      box-shadow: 0 0 0 6px rgba(200,146,42,0.2);
+    }
+    .why-badge small { font-size: 0.48rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 2px; }
+    .features { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .feat { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.2rem 1.4rem; border: 1px solid rgba(255,255,255,0.05); background: rgba(255,255,255,0.02); transition: all 0.3s; }
+    .feat:hover { border-color: rgba(200,146,42,0.3); background: rgba(200,146,42,0.04); }
+    .feat-icon { flex-shrink: 0; width: 42px; height: 42px; background: rgba(200,146,42,0.1); border: 1px solid rgba(200,146,42,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .feat-text h4 { font-family: var(--font-head); font-size: 0.88rem; font-weight: 700; letter-spacing: 1px; color: var(--white); margin-bottom: 0.3rem; }
+    .feat-text p { font-size: 0.82rem; color: var(--silver); line-height: 1.6; }
+
+    /* INDUSTRIES */
+    #industries { background: var(--bg); }
+    .ind-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .icard { background: var(--white); border: 1px solid var(--border-light); padding: 2rem 1.5rem; text-align: center; transition: all 0.3s; position: relative; overflow: hidden; }
+    .icard::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--accent); transform: scaleX(0); transition: transform 0.3s; }
+    .icard:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+    .icard:hover::after { transform: scaleX(1); }
+    .icard-ico { font-size: 2.1rem; margin-bottom: 0.8rem; }
+    .icard h4 { font-family: var(--font-head); font-size: 0.82rem; font-weight: 800; letter-spacing: 1px; color: var(--navy); text-transform: uppercase; margin-bottom: 0.5rem; }
+    .icard p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* GALLERY */
+    #gallery { background: var(--navy2); padding: 5rem 5vw; }
+    .gal-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 240px 240px; gap: 6px; margin-top: 2.5rem; }
+    .gal-item { overflow: hidden; position: relative; }
+    .gal-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.6) brightness(0.85); transition: all 0.4s; display: block; }
+    .gal-item:hover img { filter: saturate(1) brightness(1); transform: scale(1.05); }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(10,22,40,0.85)); padding: 1.5rem 1rem 0.8rem; color: var(--white); font-family: var(--font-head); font-size: 0.82rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; opacity: 0; transition: opacity 0.3s; }
+    .gal-item:hover .gal-label { opacity: 1; }
+
+    /* TESTIMONIALS */
+    #testimonials { background: var(--white); }
+    .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .tcard { background: var(--bg); border: 1px solid var(--border-light); padding: 2rem; position: relative; transition: all 0.3s; }
+    .tcard:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+    .tcard-stars { color: var(--accent); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 2px; }
+    .tcard-quote { font-size: 3rem; line-height: 1; color: var(--accent); opacity: 0.12; font-family: Georgia, serif; position: absolute; top: 1rem; right: 1.5rem; }
+    .tcard p { font-size: 0.88rem; color: var(--text-mid); line-height: 1.75; margin-bottom: 1.5rem; }
+    .tcard-author { display: flex; align-items: center; gap: 0.9rem; }
+    .tcard-av { width: 42px; height: 42px; background: linear-gradient(135deg, var(--accent), var(--steel)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-weight: 800; font-size: 0.88rem; color: var(--white); }
+    .tcard-name { font-weight: 700; font-size: 0.87rem; color: var(--navy); }
+    .tcard-role { font-size: 0.72rem; color: var(--text-muted); letter-spacing: 0.5px; margin-top: 1px; }
+
+    /* FOUNDER */
+    #founder { background: var(--bg); }
+    .founder-grid { display: grid; grid-template-columns: 360px 1fr; gap: 5rem; align-items: center; }
+    .founder-frame { position: relative; }
+    .founder-photo-placeholder { width: 100%; aspect-ratio: 3/4; background: linear-gradient(135deg, var(--navy) 0%, var(--steel) 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; border: 1px solid rgba(200,146,42,0.2); }
+    .founder-photo-placeholder .ico { font-size: 5rem; opacity: 0.2; }
+    .founder-photo-placeholder p { font-family: var(--font-mono); font-size: 0.62rem; color: rgba(255,255,255,0.25); letter-spacing: 2px; text-transform: uppercase; }
+    .founder-corner { position: absolute; bottom: -16px; right: -16px; width: 90px; height: 90px; border-right: 3px solid var(--accent); border-bottom: 3px solid var(--accent); pointer-events: none; }
+    .founder-accent-block { position: absolute; top: -16px; left: -16px; width: 60px; height: 60px; border-left: 3px solid var(--accent); border-top: 3px solid var(--accent); pointer-events: none; }
+    .founder-name { font-family: var(--font-head); font-size: clamp(1.8rem, 3.5vw, 3rem); font-weight: 900; color: var(--navy); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 0.4rem; }
+    .founder-role { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 2rem; }
+    .founder-bio { font-size: 1rem; color: var(--text-mid); line-height: 1.85; margin-bottom: 2rem; }
+    .founder-values { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .val-pill { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 1.5px; color: var(--steel); background: var(--light); border: 1px solid var(--border-light); padding: 0.35rem 0.85rem; text-transform: uppercase; transition: all 0.2s; }
+    .val-pill:hover { background: rgba(200,146,42,0.1); border-color: rgba(200,146,42,0.3); color: var(--accent); }
+    .founder-quote { border-left: 3px solid var(--accent); padding: 0.8rem 1.2rem; background: rgba(200,146,42,0.04); font-size: 0.93rem; color: var(--text-mid); font-style: italic; line-height: 1.7; }
+
+    /* CONTACT */
+    #contact { background: var(--navy); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 4rem; margin-top: 3rem; }
+    .cinfo { display: flex; flex-direction: column; gap: 1.5rem; }
+    .citem { display: flex; gap: 1rem; align-items: flex-start; }
+    .cico { width: 46px; height: 46px; flex-shrink: 0; background: rgba(200,146,42,0.08); border: 1px solid rgba(200,146,42,0.2); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; }
+    .ctext h4 { font-weight: 700; font-size: 0.85rem; color: var(--white); margin-bottom: 0.3rem; }
+    .ctext p, .ctext a { font-size: 0.85rem; color: var(--silver); line-height: 1.6; text-decoration: none; }
+    .ctext a:hover { color: var(--accent); }
+    .cdiv { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 0.3rem 0; }
+    .cform { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .fgroup { display: flex; flex-direction: column; gap: 0.4rem; }
+    .fgroup label { font-family: var(--font-mono); font-size: 0.6rem; color: var(--silver); letter-spacing: 2px; text-transform: uppercase; }
+    .fgroup input, .fgroup select, .fgroup textarea { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--white); padding: 0.8rem 1rem; font-family: var(--font-body); font-size: 0.9rem; outline: none; transition: border-color 0.2s; resize: vertical; }
+    .fgroup input::placeholder, .fgroup textarea::placeholder { color: rgba(255,255,255,0.2); }
+    .fgroup input:focus, .fgroup select:focus, .fgroup textarea:focus { border-color: var(--accent); background: rgba(200,146,42,0.03); }
+    .fgroup select option { background: var(--navy2); color: var(--white); }
+    .fsub { background: var(--accent); color: var(--navy); border: none; padding: 1rem 3rem; font-family: var(--font-head); font-size: 0.8rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; cursor: pointer; transition: all 0.2s; align-self: flex-start; }
+    .fsub:hover { background: var(--accent2); transform: translateY(-2px); }
+
+    /* TICKER */
+    .ticker-wrap { overflow: hidden; background: var(--accent); padding: 0.65rem 0; }
+    .ticker { display: flex; width: max-content; animation: tick 30s linear infinite; }
+    .tick-item { font-family: var(--font-mono); font-size: 0.68rem; font-weight: 500; color: var(--navy); letter-spacing: 3px; text-transform: uppercase; padding: 0 2.5rem; white-space: nowrap; }
+    @keyframes tick { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+    /* FOOTER */
+    footer { background: var(--bg-dark); border-top: 1px solid rgba(200,146,42,0.15); }
+    .footer-main { display: grid; grid-template-columns: 1.8fr 1fr 1fr 1fr; gap: 3rem; padding: 4rem 5vw 3rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .fb .brand { font-family: var(--font-head); font-size: 1.3rem; font-weight: 900; color: var(--white); letter-spacing: 1px; margin-bottom: 1rem; line-height: 1.2; }
+    .fb .brand span { color: var(--accent); }
+    .fb p { font-size: 0.82rem; color: rgba(255,255,255,0.32); line-height: 1.7; margin-bottom: 1.5rem; }
+    .social-row { display: flex; gap: 0.6rem; }
+    .soc { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: rgba(255,255,255,0.35); text-decoration: none; transition: all 0.2s; }
+    .soc:hover { border-color: var(--accent); color: var(--accent); }
+    .fcol h5 { font-family: var(--font-mono); font-size: 0.6rem; color: var(--accent); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1.2rem; }
+    .fcol ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .fcol li a { font-size: 0.82rem; color: rgba(255,255,255,0.38); text-decoration: none; transition: color 0.2s; }
+    .fcol li a:hover { color: var(--white); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 5vw; flex-wrap: wrap; gap: 0.8rem; }
+    .footer-bottom p { font-size: 0.77rem; color: rgba(255,255,255,0.22); }
+    .footer-bottom .domain { font-family: var(--font-mono); font-size: 0.67rem; color: var(--accent); letter-spacing: 2px; }
+
+    /* WHATSAPP */
+    .wa-btn { position: fixed; bottom: 2rem; right: 2rem; background: #25d366; color: white; width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; text-decoration: none; z-index: 999; box-shadow: 0 4px 20px rgba(37,211,102,0.45); transition: transform 0.2s; }
+    .wa-btn:hover { transform: scale(1.1); }
+    .wa-pulse { position: absolute; inset: -4px; border-radius: 50%; border: 2px solid #25d366; animation: pulse 2s ease-out infinite; }
+    @keyframes pulse { 0% { opacity: 0.8; transform: scale(1); } 100% { opacity: 0; transform: scale(1.5); } }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media(max-width: 1100px) {
+      .product-grid { grid-template-columns: repeat(2, 1fr); }
+      .gal-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .gal-item.tall { grid-row: auto; height: 240px; }
+    }
+    @media(max-width: 900px) {
+      .hero-content { flex-direction: column; padding-top: 100px; }
+      .hero-right { flex: none; width: 100%; }
+      .why-grid, .founder-grid, .contact-grid { grid-template-columns: 1fr; }
+      .trust-bar { grid-template-columns: repeat(2, 1fr); }
+      .trust-item:nth-child(2) { border-right: none; }
+      .ind-grid { grid-template-columns: repeat(2, 1fr); }
+      .testi-grid, .product-grid { grid-template-columns: 1fr; }
+      .footer-main { grid-template-columns: 1fr 1fr; }
+      .form-row2 { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: block; }
+      .why-img-stack { height: 300px; }
+      .why-img1 { height: 220px; }
+      .why-img2 { height: 150px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-mark">RK</div>
+    <div class="logo-text">
+      <div class="l1">RK Power <span>Drive</span> Systems</div>
+      <div class="l2">rkpowerdrivesystems.co.in</div>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#founder">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get Quote</button>
+  <button class="hamburger" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Precision Motor Engineering · India</div>
+      <h1>Power That<br><em>Never</em><br>Stops.</h1>
+      <p class="hero-sub">High-performance submersible, industrial &amp; specialty motors engineered for India's toughest applications. Built to last. Priced to deliver.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn-gold">Explore Motors</a>
+        <a href="#contact" class="btn-ghost">Request a Quote →</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <img class="hero-img-main"
+        src="https://i.pinimg.com/736x/9e/6d/f9/9e6df9c01f83ec29c5c9d04b06516e01.jpg"
+        onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=800&q=80'"
+        alt="Industrial Motor"/>
+      <div class="hero-img-row">
+        <img class="hero-img-sm"
+          src="https://i.pinimg.com/736x/3e/0a/0e/3e0a0eba0b62e35bba6a6e9e8a96b1c5.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80'"
+          alt="Submersible Pump"/>
+        <img class="hero-img-sm"
+          src="https://i.pinimg.com/736x/e5/0d/c8/e50dc847a2c6e64f3a5b08b9e9b95e2b.jpg"
+          onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=400&q=80'"
+          alt="VFD Control Panel"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item reveal"><div class="trust-num">500+</div><div class="trust-label">Motors Delivered</div></div>
+  <div class="trust-item reveal"><div class="trust-num">50+</div><div class="trust-label">Industry Partners</div></div>
+  <div class="trust-item reveal"><div class="trust-num">99.4%</div><div class="trust-label">Uptime Reliability</div></div>
+  <div class="trust-item reveal"><div class="trust-num">24/7</div><div class="trust-label">Technical Support</div></div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span class="tick-item">Submersible Motors ◆</span>
+    <span class="tick-item">Industrial Motors ◆</span>
+    <span class="tick-item">Monoblock Pumps ◆</span>
+    <span class="tick-item">VFD Compatible Drives ◆</span>
+    <span class="tick-item">Agriculture Pump Sets ◆</span>
+    <span class="tick-item">Custom Motor Solutions ◆</span>
+    <span class="tick-item">Pan-India Delivery ◆</span>
+    <span class="tick-item">ISO Quality Standards ◆</span>
+    <span class="tick-item">Submersible Motors ◆</span>
+    <span class="tick-item">Industrial Motors ◆</span>
+    <span class="tick-item">Monoblock Pumps ◆</span>
+    <span class="tick-item">VFD Compatible Drives ◆</span>
+    <span class="tick-item">Agriculture Pump Sets ◆</span>
+    <span class="tick-item">Custom Motor Solutions ◆</span>
+    <span class="tick-item">Pan-India Delivery ◆</span>
+    <span class="tick-item">ISO Quality Standards ◆</span>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="products-hd reveal">
+    <div>
+      <div class="chip">Our Product Range</div>
+      <h2 class="sec-title">Motors Built for<br>Every Mission</h2>
+    </div>
+    <p class="sec-sub">From deep-well submersible to heavy-duty industrial — every motor is precision-engineered for maximum torque, efficiency, and service life.</p>
+  </div>
+  <div class="product-grid">
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/3e/0a/0e/3e0a0eba0b62e35bba6a6e9e8a96b1c5.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80'" alt="Submersible Motor"/>
+        <div class="pcard-badge">Flagship</div>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">01 / SUBMERSIBLE</div>
+        <h3 class="pcard-name">Submersible Motors</h3>
+        <p class="pcard-desc">Hermetically sealed for deep-well and borewell use. Corrosion-resistant body, designed for continuous underwater operation at depths up to 150m.</p>
+        <div class="pcard-tags"><span class="ptag">0.5HP – 15HP</span><span class="ptag">IP68 Rated</span><span class="ptag">3Ø / 1Ø</span><span class="ptag">150m Depth</span></div>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/1c/64/3a/1c643a38b1bd4f84ce8b54b234a90e64.jpg" onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=600&q=80'" alt="Industrial Motor"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">02 / INDUSTRIAL</div>
+        <h3 class="pcard-name">Industrial Motors</h3>
+        <p class="pcard-desc">High-torque induction motors with premium copper windings and precision-balanced rotors. Built for years of continuous factory operation.</p>
+        <div class="pcard-tags"><span class="ptag">1HP – 100HP</span><span class="ptag">IE2 / IE3</span><span class="ptag">TEFC</span><span class="ptag">2800 RPM</span></div>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/20/dc/53/20dc536c48f7d9a8c8b3e08cb9b0a44c.jpg" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80'" alt="Monoblock Pump"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">03 / MONOBLOCK</div>
+        <h3 class="pcard-name">Monoblock Pumps</h3>
+        <p class="pcard-desc">Self-priming, compact monoblock units ideal for domestic, agricultural, and commercial water supply with excellent hydraulic efficiency.</p>
+        <div class="pcard-tags"><span class="ptag">0.5HP – 5HP</span><span class="ptag">Self-Priming</span><span class="ptag">Cast Iron</span><span class="ptag">Low Noise</span></div>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/e5/0d/c8/e50dc847a2c6e64f3a5b08b9e9b95e2b.jpg" onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=600&q=80'" alt="VFD Motor"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">04 / VFD</div>
+        <h3 class="pcard-name">VFD-Compatible Motors</h3>
+        <p class="pcard-desc">Energy-saving variable frequency drive compatible motors. Reduce electricity consumption by up to 40% with smart drive integration.</p>
+        <div class="pcard-tags"><span class="ptag">VFD Ready</span><span class="ptag">IE3 Efficient</span><span class="ptag">Low Harmonic</span><span class="ptag">Wide Speed</span></div>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/ba/e9/5d/bae95d79b28b18a2a60e9e5d6b7dc17b.jpg" onerror="this.src='https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=600&q=80'" alt="Agriculture Pump"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">05 / AGRICULTURE</div>
+        <h3 class="pcard-name">Agriculture Pump Sets</h3>
+        <p class="pcard-desc">Rugged pump sets engineered for Indian agricultural conditions — proven performance in irrigation, drainage, and flood control.</p>
+        <div class="pcard-tags"><span class="ptag">Open Well</span><span class="ptag">Borewell</span><span class="ptag">Electric / Diesel</span><span class="ptag">Starterless</span></div>
+      </div>
+    </div>
+    <div class="pcard reveal">
+      <div class="pcard-img-wrap">
+        <img class="pcard-img" src="https://i.pinimg.com/736x/d4/0e/cf/d40ecf8df9f2e7cd3b1e7a4c3a2b6f15.jpg" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80'" alt="Custom Motor"/>
+      </div>
+      <div class="pcard-body">
+        <div class="pcard-num">06 / CUSTOM</div>
+        <h3 class="pcard-name">Custom Motor Solutions</h3>
+        <p class="pcard-desc">Bespoke motors for specialized industrial, marine, and OEM applications. Our engineering team designs to your exact specification.</p>
+        <div class="pcard-tags"><span class="ptag">OEM Design</span><span class="ptag">Marine Grade</span><span class="ptag">Explosion Proof</span><span class="ptag">Custom Voltage</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why">
+  <div class="why-grid">
+    <div class="why-img-stack reveal">
+      <img class="why-img1" src="https://i.pinimg.com/736x/1c/64/3a/1c643a38b1bd4f84ce8b54b234a90e64.jpg" onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80'" alt="Motor manufacturing"/>
+      <img class="why-img2" src="https://i.pinimg.com/736x/d4/0e/cf/d40ecf8df9f2e7cd3b1e7a4c3a2b6f15.jpg" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80'" alt="Motor winding"/>
+      <div class="why-badge">IE3<small>Efficiency</small></div>
+    </div>
+    <div>
+      <div class="chip reveal">Engineering Excellence</div>
+      <h2 class="sec-title sec-title-white reveal">Why Choose<br>RK Power Drive</h2>
+      <p class="sec-sub sec-sub-light reveal">We don't just sell motors. We deliver engineered reliability — backed by hands-on technical expertise and an unwavering commitment to performance.</p>
+      <div class="features">
+        <div class="feat reveal"><div class="feat-icon">🏭</div><div class="feat-text"><h4>Precision Manufacturing</h4><p>Premium copper windings, balanced rotors, and factory-calibrated bearings assembled under strict tolerance controls.</p></div></div>
+        <div class="feat reveal"><div class="feat-icon">⚡</div><div class="feat-text"><h4>High Energy Efficiency</h4><p>IE2 and IE3 compliant motors cut your electricity bills and reduce carbon footprint without compromising output power.</p></div></div>
+        <div class="feat reveal"><div class="feat-icon">🛡️</div><div class="feat-text"><h4>All-Weather Durability</h4><p>Built for the Indian climate — extreme heat, humidity, voltage fluctuations. Reliable performance year after year.</p></div></div>
+        <div class="feat reveal"><div class="feat-icon">🔧</div><div class="feat-text"><h4>Lifetime After-Sales Support</h4><p>Dedicated technical team, spare parts availability, and field engineers — we stand behind every product we ship.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section id="industries">
+  <div class="chip reveal">Markets We Serve</div>
+  <h2 class="sec-title reveal">Industries We Power</h2>
+  <div class="ind-grid">
+    <div class="icard reveal"><div class="icard-ico">🌾</div><h4>Agriculture</h4><p>Irrigation, borewell, flood control pump sets</p></div>
+    <div class="icard reveal"><div class="icard-ico">🏗️</div><h4>Construction</h4><p>Dewatering, concrete mixing, tower hoists</p></div>
+    <div class="icard reveal"><div class="icard-ico">🏭</div><h4>Manufacturing</h4><p>Conveyors, compressors, CNC machines</p></div>
+    <div class="icard reveal"><div class="icard-ico">🏘️</div><h4>Real Estate</h4><p>Water supply systems, sump pumps, elevators</p></div>
+    <div class="icard reveal"><div class="icard-ico">💧</div><h4>Water Utilities</h4><p>Municipal supply, sewage, treatment plants</p></div>
+    <div class="icard reveal"><div class="icard-ico">⚡</div><h4>Power Plants</h4><p>Cooling towers, boiler feed, condensate pumps</p></div>
+    <div class="icard reveal"><div class="icard-ico">🚢</div><h4>Marine</h4><p>Bilge, ballast, cargo handling systems</p></div>
+    <div class="icard reveal"><div class="icard-ico">🏥</div><h4>Hospitals</h4><p>HVAC, fire suppression, critical water supply</p></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="chip" style="color:var(--accent);border-left-color:var(--accent);background:rgba(200,146,42,0.1)">Product Gallery</div>
+  <h2 class="sec-title sec-title-white reveal">Built with Precision</h2>
+  <div class="gal-grid reveal">
+    <div class="gal-item tall">
+      <img src="https://i.pinimg.com/736x/2b/04/58/2b0458e9a1a4a5ee7ac5d1e1cba72c01.jpg" onerror="this.src='https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?w=700&q=80'" alt="Submersible pump"/>
+      <div class="gal-label">Submersible Pump Motor</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://i.pinimg.com/736x/1c/64/3a/1c643a38b1bd4f84ce8b54b234a90e64.jpg" onerror="this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=500&q=80'" alt="Industrial motor"/>
+      <div class="gal-label">Industrial Motor Assembly</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://i.pinimg.com/736x/d4/0e/cf/d40ecf8df9f2e7cd3b1e7a4c3a2b6f15.jpg" onerror="this.src='https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=500&q=80'" alt="Motor winding"/>
+      <div class="gal-label">Copper Winding Process</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://i.pinimg.com/736x/e5/0d/c8/e50dc847a2c6e64f3a5b08b9e9b95e2b.jpg" onerror="this.src='https://images.unsplash.com/photo-1518770660439-4636190af475?w=500&q=80'" alt="VFD panel"/>
+      <div class="gal-label">VFD Control Panel</div>
+    </div>
+    <div class="gal-item">
+      <img src="https://i.pinimg.com/736x/ba/e9/5d/bae95d79b28b18a2a60e9e5d6b7dc17b.jpg" onerror="this.src='https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=500&q=80'" alt="Agriculture pump"/>
+      <div class="gal-label">Agriculture Pump Set</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="chip reveal">Client Feedback</div>
+  <h2 class="sec-title reveal">What Our Clients Say</h2>
+  <div class="testi-grid">
+    <div class="tcard reveal">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-quote">"</div>
+      <p>The submersible motors have been running our borewell for over two years without a single breakdown. Outstanding build quality and the technical team was very responsive during installation.</p>
+      <div class="tcard-author"><div class="tcard-av">MR</div><div><div class="tcard-name">Murugesan R.</div><div class="tcard-role">Farm Owner · Coimbatore</div></div></div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-quote">"</div>
+      <p>We procured 12 industrial motors for our garment factory. Competitive pricing, on-time delivery, and the motors are performing well above expectations under continuous load.</p>
+      <div class="tcard-author"><div class="tcard-av">SP</div><div><div class="tcard-name">Shanmugam P.</div><div class="tcard-role">Operations Head · Tirupur Garments</div></div></div>
+    </div>
+    <div class="tcard reveal">
+      <div class="tcard-stars">★★★★★</div>
+      <div class="tcard-quote">"</div>
+      <p>Excellent company. They understood our requirement for explosion-proof motors and delivered a custom solution on schedule. Very professional team, highly recommended.</p>
+      <div class="tcard-author"><div class="tcard-av">VK</div><div><div class="tcard-name">Venkatesh K.</div><div class="tcard-role">Plant Engineer · Petrochemical Unit</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section id="founder">
+  <div class="founder-grid">
+    <div class="founder-frame reveal">
+      <div class="founder-photo-placeholder">
+        <div class="ico">👤</div>
+        <p>Add Your Photo Here</p>
+      </div>
+      <div class="founder-corner"></div>
+      <div class="founder-accent-block"></div>
+    </div>
+    <div class="reveal">
+      <div class="chip">Leadership</div>
+      <h2 class="founder-name">Kalaichitra<br>Rajendran</h2>
+      <div class="founder-role">Founder &amp; Managing Director — RK Power Drive Systems</div>
+      <p class="founder-bio">Kalaichitra Rajendran founded RK Power Drive Systems with a singular vision: to bring world-class motor engineering to Indian industries at accessible prices. With deep expertise in electromechanical systems and a relentless focus on quality, she has built a company that engineers trust for their most demanding applications.<br><br>Driven by a passion for precision engineering and sustainable industrial solutions, Kalaichitra leads every product decision with an engineer's eye and an entrepreneur's clarity. Under her leadership, RK Power Drive Systems is rapidly becoming the preferred motor partner across Tamil Nadu and beyond.</p>
+      <div class="founder-values">
+        <span class="val-pill">Quality First</span><span class="val-pill">Customer Focus</span><span class="val-pill">Innovation</span><span class="val-pill">Integrity</span><span class="val-pill">Made in India</span>
+      </div>
+      <blockquote class="founder-quote">"Every motor we build carries our name. That's why quality is not a checkbox — it's the foundation of everything we do at RK Power Drive Systems."</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="chip" style="color:var(--accent);border-left-color:var(--accent);background:rgba(200,146,42,0.1)">Get in Touch</div>
+  <h2 class="sec-title sec-title-white reveal">Let's Talk Motors</h2>
+  <div class="contact-grid">
+    <div class="cinfo">
+      <div class="citem reveal"><div class="cico">📍</div><div class="ctext"><h4>Address</h4><p>RK Power Drive Systems<br>Tamil Nadu, India</p></div></div>
+      <hr class="cdiv"/>
+      <div class="citem reveal"><div class="cico">📞</div><div class="ctext"><h4>Phone / WhatsApp</h4><p><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></p></div></div>
+      <hr class="cdiv"/>
+      <div class="citem reveal"><div class="cico">✉️</div><div class="ctext"><h4>Email</h4><p><a href="mailto:info@rkpowerdrivesystems.co.in">info@rkpowerdrivesystems.co.in</a></p></div></div>
+      <hr class="cdiv"/>
+      <div class="citem reveal"><div class="cico">🌐</div><div class="ctext"><h4>Website</h4><p><a href="https://rkpowerdrivesystems.co.in">rkpowerdrivesystems.co.in</a></p></div></div>
+    </div>
+    <form class="cform reveal" onsubmit="handleSubmit(event)">
+      <div class="form-row2">
+        <div class="fgroup"><label>Your Name *</label><input type="text" placeholder="Rajesh Kumar" required/></div>
+        <div class="fgroup"><label>Phone Number *</label><input type="tel" placeholder="+91 98765 43210" required/></div>
+      </div>
+      <div class="fgroup"><label>Email Address</label><input type="email" placeholder="you@company.com"/></div>
+      <div class="fgroup">
+        <label>Product Interest</label>
+        <select>
+          <option value="">Select a product type</option>
+          <option>Submersible Motor</option><option>Industrial Motor</option><option>Monoblock Pump</option>
+          <option>VFD-Compatible Motor</option><option>Agriculture Pump Set</option><option>Custom Motor Solution</option>
+        </select>
+      </div>
+      <div class="fgroup"><label>Message / Requirement</label><textarea rows="4" placeholder="Describe your requirement — HP needed, application type, quantity, etc."></textarea></div>
+      <button type="submit" class="fsub">⚡ Send Enquiry</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-main">
+    <div class="fb">
+      <div class="brand">RK Power<br><span>Drive Systems</span></div>
+      <p>High-performance motor solutions for India's industrial, agricultural, and commercial sectors. Built to last, engineered to perform.</p>
+      <div class="social-row">
+        <a class="soc" href="#" title="LinkedIn">in</a>
+        <a class="soc" href="#" title="Facebook">f</a>
+        <a class="soc" href="#" title="Instagram">📷</a>
+        <a class="soc" href="https://wa.me/91XXXXXXXXXX" title="WhatsApp">💬</a>
+      </div>
+    </div>
+    <div class="fcol">
+      <h5>Products</h5>
+      <ul>
+        <li><a href="#">Submersible Motors</a></li><li><a href="#">Industrial Motors</a></li>
+        <li><a href="#">Monoblock Pumps</a></li><li><a href="#">VFD Motors</a></li>
+        <li><a href="#">Agriculture Pumps</a></li><li><a href="#">Custom Solutions</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Company</h5>
+      <ul>
+        <li><a href="#founder">About Us</a></li><li><a href="#why">Why Choose Us</a></li>
+        <li><a href="#industries">Industries</a></li><li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="mailto:info@rkpowerdrivesystems.co.in">info@rkpowerdrivesystems.co.in</a></li>
+        <li><a href="tel:+91XXXXXXXXXX">+91 XXXXX XXXXX</a></li>
+        <li><a href="#">Tamil Nadu, India</a></li>
+        <li><a href="https://rkpowerdrivesystems.co.in">rkpowerdrivesystems.co.in</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 RK Power Drive Systems. All rights reserved. Founded by Kalaichitra Rajendran.</p>
+    <span class="domain">rkpowerdrivesystems.co.in</span>
+  </div>
+</footer>
+
+<!-- WhatsApp FAB -->
+<a class="wa-btn" href="https://wa.me/91XXXXXXXXXX" target="_blank" title="Chat on WhatsApp">
+  <div class="wa-pulse"></div>💬
+</a>
+
+<script>
+  // Scroll reveal
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 70);
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+  // Form submit
+  function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.fsub');
+    btn.textContent = '✅ Enquiry Sent!';
+    btn.style.background = '#22c55e';
+    setTimeout(() => { btn.textContent = '⚡ Send Enquiry'; btn.style.background = ''; e.target.reset(); }, 3000);
+  }
+
+  // Mobile menu
+  function toggleMenu() {
+    const links = document.querySelector('.nav-links');
+    const open = links.style.display === 'flex';
+    Object.assign(links.style, {
+      display: open ? 'none' : 'flex', flexDirection: 'column',
+      position: 'absolute', top: '70px', left: '0', right: '0',
+      background: 'rgba(10,22,40,0.98)', padding: '1rem 5vw 2rem', gap: '0.5rem'
+    });
+  }
+
+  // Nav shadow on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow = window.scrollY > 60 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+  });
+</script>
+</body>
+</html>
